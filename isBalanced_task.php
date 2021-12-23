@@ -3,17 +3,17 @@
 function isBalanced(string $string): bool
 {
     $array = str_split($string);
-    $stack = [];
+    $count = 0;
 
     foreach($array as $value) {
         if($value === '(') {
-            $stack[] = $value;
+            $count++;
         } elseif($value === ')') {
-            if(empty($stack)) {
+            if($count === 0) {
                 return false;
             }
-            array_pop($stack);
+            $count--;
         }
     }
-    return count($stack) === 0;
+    return $count === 0;
 }
