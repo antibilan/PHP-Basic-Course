@@ -8,11 +8,11 @@ function isPerfect(int $n): bool
         return false;
     }
 
-    for($i = 2; $i < $n; $i++){
+    for($i = 1; $i <= $n/2; $i++) {
         if($n % $i === 0) {
             $dividers[] = $i;
         }
     }
 
-    return array_sum($dividers) + 1 === $n; //1 is always a divider so I put it here
+    return array_sum($dividers) === $n;
 }
