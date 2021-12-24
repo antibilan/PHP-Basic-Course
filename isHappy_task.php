@@ -4,11 +4,11 @@ function isHappy(string $string): bool
 {
     $len = strlen($string);
 
-    if( $len % 2 !== 0) {
+    if ($len % 2 !== 0) {
         return false;
     }
 
-    $halfs = str_split($string, $len/2);
+    $halfs = str_split($string, $len / 2);
     $halfArr1 = str_split($halfs[0]);
     $halfArr2 = str_split($halfs[1]);
 
