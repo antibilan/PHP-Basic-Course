@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Challenges;
+
 use MyApp\Challenges\Task8;
 use MyApp\Logger\TestLogger;
 use PHPUnit\Framework\TestCase;
@@ -27,13 +29,14 @@ class Task8Test extends TestCase
 
     public function testFizzBuzzWrong(): void
     {
+        $logMsg = "[ERR]fizzBuzz of Task8: Wrong input sequence: The begin is less than the end!";
         $task8 = new Task8(new TestLogger());
+
         $this->expectException('Exception');
         try {
             $task8->fizzBuzz(10, 5);
         } finally {
-            self::assertNotFalse(strpos(file_get_contents(__DIR__ . '/../../tests/test_log.txt'),'fizzBuzz of Task8: Wrong input sequence: The begin is less than the end!' ));
+            self::assertEquals(TestLogger::$lastEntry, $logMsg);
         }
     }
-
 }

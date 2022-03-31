@@ -1,8 +1,10 @@
 <?php
 
+namespace Tests\Challenges;
+
 use MyApp\Challenges\Task4;
 use MyApp\Logger\TestLogger;
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class Task4Test extends TestCase
 {
@@ -29,13 +31,14 @@ class Task4Test extends TestCase
 
     public function testAddDigitsNegative(): void
     {
+        $logMsg = '[ERR]addDigits of Task4: The number is negative!';
         $task4 = new Task4(new TestLogger());
 
         $this->expectException('Exception');
         try {
             $task4->addDigits(-38);
         } finally {
-            self::assertNotFalse(strpos(file_get_contents(__DIR__ . '/../../tests/test_log.txt'),'addDigits of Task4: The number is negative!' ));
+            self::assertEquals(TestLogger::$lastEntry, $logMsg);
         }
     }
 }

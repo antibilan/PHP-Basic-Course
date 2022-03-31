@@ -12,7 +12,8 @@
     },
     "autoload": {
         "psr-4": {
-            "MyApp\\": "src/"
+            "MyApp\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "require-dev": {
@@ -20,6 +21,6 @@
     },
     "scripts": {
         "test": "phpunit",
-        "lint": "phpcs --standard=PSR12 ./src"
+        "lint": "phpcs --standard=PSR12 ./src && phpcs --standard=PSR12 ./tests"
     }
 }

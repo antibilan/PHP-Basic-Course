@@ -1,7 +1,9 @@
 <?php
 
+namespace Tests\Challenges;
+
 use MyApp\Challenges\Task7;
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 use MyApp\Logger\TestLogger;
 
 class Task7Test extends TestCase
@@ -17,7 +19,7 @@ class Task7Test extends TestCase
         try {
             $task7->isHappy($data);
         } finally {
-            self::assertNotFalse(strpos(file_get_contents(__DIR__ . '/../../tests/test_log.txt'), $logMsg));
+            self::assertEquals(TestLogger::$lastEntry, $logMsg);
         }
     }
 
