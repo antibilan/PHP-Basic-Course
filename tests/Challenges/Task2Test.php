@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests\Challenges;
+
 use MyApp\Challenges\Task2;
 use MyApp\Logger\TestLogger;
 use PHPUnit\Framework\TestCase;
@@ -39,15 +41,15 @@ class Task2Test extends TestCase
         try {
             $task2->isPowerOfThree($data);
         } finally {
-            self::assertNotFalse(strpos(file_get_contents(__DIR__ . '/../../tests/test_log.txt'), $logMsg));
+            self::assertEquals(TestLogger::$lastEntry, $logMsg);
         }
     }
 
     public function isPowerOfThreeWrongProvider(): array
     {
         return [
-            [0, 'isPowerOfThree: The number is not Natural'],
-            [-3, 'isPowerOfThree: The number is not Natural'],
+            [0, '[ERR]isPowerOfThree: The number is not Natural'],
+            [-3, '[ERR]isPowerOfThree: The number is not Natural'],
         ];
     }
 }

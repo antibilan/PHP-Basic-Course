@@ -4,8 +4,10 @@ namespace MyApp\Logger;
 
 class TestLogger extends AbstractLogger
 {
+    public static string $lastEntry;
+
     public function log(string $msg): void
     {
-        file_put_contents(__DIR__ . '/../../tests/test_log.txt', $msg . PHP_EOL, FILE_APPEND);
+        self::$lastEntry = $msg;
     }
 }

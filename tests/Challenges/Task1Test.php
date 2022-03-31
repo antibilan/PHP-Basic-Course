@@ -1,8 +1,10 @@
 <?php
 
+namespace Tests\Challenges;
+
 use MyApp\Challenges\Task1;
 use MyApp\Logger\TestLogger;
-use \PHPUnit\Framework\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class Task1Test extends TestCase
 {
@@ -15,5 +17,4 @@ class Task1Test extends TestCase
 
         self::assertEquals($actual, $expected);
     }
-
 }
